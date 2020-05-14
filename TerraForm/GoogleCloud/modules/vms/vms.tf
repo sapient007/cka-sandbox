@@ -15,7 +15,7 @@ resource "google_compute_instance" "master-node" {
   machine_type = "n1-standard-2"
   zone         = "${element(var.zones, 1)}"
   
-  tags = ["${var.env_name}", "${var.env_name}-master-eip"]
+  tags = ["${var.env_name}", "${var.env_name}-master-node"]
 
   boot_disk {
     initialize_params {
@@ -46,7 +46,7 @@ resource "google_compute_instance" "worker-node1" {
   machine_type = "n1-standard-2"
   zone         = "${element(var.zones, 1)}"
 
-  tags = ["${var.env_name}", "${var.env_name}-worker1-eip"]
+  tags = ["${var.env_name}", "${var.env_name}-worker-node"]
 
   boot_disk {
     initialize_params {
@@ -78,7 +78,7 @@ resource "google_compute_instance" "worker-node2" {
   machine_type = "n1-standard-2"
   zone         = "${element(var.zones, 1)}"
 
-  tags = ["${var.env_name}", "${var.env_name}-worker2-eip"]
+  tags = ["${var.env_name}", "${var.env_name}-worker-node"]
 
   boot_disk {
     initialize_params {
