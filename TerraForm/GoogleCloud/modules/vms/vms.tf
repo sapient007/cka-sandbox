@@ -67,8 +67,8 @@ resource "google_compute_instance" "worker-node1" {
 
   }
   metadata {
-    environment = "${var.env_name}"
-    sshKeys     = "${var.ssh_public_key}"
+    ssh-keys               = "${format("ubuntu:%s", var.ssh_public_key)}"
+    block-project-ssh-keys = "TRUE"
   }
 
 }
@@ -98,8 +98,8 @@ resource "google_compute_instance" "worker-node2" {
     }
   }
   metadata {
-    environment = "${var.env_name}"
-    sshKeys     = "${var.ssh_public_key}"
+    ssh-keys               = "${format("ubuntu:%s", var.ssh_public_key)}"
+    block-project-ssh-keys = "TRUE"
   }
 
 }
