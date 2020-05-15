@@ -27,6 +27,6 @@ resource "google_compute_firewall" "kubernetes-internal" {
   allow {
     protocol = "udp"
   }
-
+  target_tags = ["${var.env_name}-master-node", "${var.env_name}-worker-node" ]
   source_ranges = "${list(var.infrastructure_cidr)}"
 }

@@ -17,6 +17,7 @@ variable "internetless" {
 variable "service_account_key" {
   type = "string"
 }
+
 variable "infrastructure_cidr" {
   type        = "string"
   description = "cidr for infrastructure subnet"
@@ -26,6 +27,16 @@ variable "infrastructure_cidr" {
 variable "ssh_public_key" {
   type = "string"
 }
+
 variable "zones" {
   type = "list"
+}
+
+variable "ssh_private_key" {
+  type = "string"
+}
+
+variable "common_init_script" {
+  description = "Path to the script for initiliazing vms with common set of tools."
+  default     = "" 
 }

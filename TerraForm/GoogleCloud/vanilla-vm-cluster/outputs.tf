@@ -38,6 +38,7 @@ output "worker_node1_public_ip" {
 output "worker_node1_private_ip" {
   value = "${module.vms.worker_node1_private_ip}"
 }
+
 output "worker_node2_public_ip" {
   value = "${module.vms.worker_node2_public_ip}"
 }

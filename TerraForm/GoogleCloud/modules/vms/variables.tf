@@ -14,3 +14,6 @@ variable "network" {}
 
 variable "network_name" {}
 
+variable "common_init_script" {}
+
+variable "ssh_private_key" {}

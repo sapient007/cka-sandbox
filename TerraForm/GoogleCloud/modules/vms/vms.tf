@@ -10,6 +10,14 @@ resource "google_compute_firewall" "nodes-external" {
   target_tags = ["${var.env_name}-master-node", "${var.env_name}-worker-node" ]
 }
 
+data "template_file" "common_init_script" {
+  template = "${file(var.common_init_script)}"
+
+  vars {
+    env_name = "${var.env_name}"
+  }
+}
+
 resource "google_compute_instance" "master-node" {
   name         = "${var.env_name}-master-node"
   machine_type = "n1-standard-2"
@@ -37,6 +45,29 @@ resource "google_compute_instance" "master-node" {
   metadata {
     ssh-keys               = "${format("ubuntu:%s", var.ssh_public_key)}"
     block-project-ssh-keys = "TRUE"
+  }
+  provisioner "file" {
+    content     = "${data.template_file.common_init_script.rendered}"
+    destination = "/tmp/common_init.sh"
+
+    connection {
+      type        = "ssh"
+      user        = "${var.username}"
+      private_key = "${var.ssh_private_key}"
+    }
+  }
+  provisioner "remote-exec" {
+    inline = [
+      "chmod +x /tmp/common_init.sh",
+      "/tmp/common_init.sh",
+    ]
+
+    connection {
+      type        = "ssh"
+      user        = "${var.username}"
+      private_key = "${var.ssh_private_key}"
+      agent       = false
+    }
   }
 
 }
@@ -70,6 +101,29 @@ resource "google_compute_instance" "worker-node1" {
     ssh-keys               = "${format("ubuntu:%s", var.ssh_public_key)}"
     block-project-ssh-keys = "TRUE"
   }
+  provisioner "file" {
+    content     = "${data.template_file.common_init_script.rendered}"
+    destination = "/tmp/common_init.sh"
+
+    connection {
+      type        = "ssh"
+      user        = "${var.username}"
+      private_key = "${var.ssh_private_key}"
+    }
+  }
+  provisioner "remote-exec" {
+    inline = [
+      "chmod +x /tmp/common_init.sh",
+      "/tmp/common_init.sh",
+    ]
+
+    connection {
+      type        = "ssh"
+      user        = "${var.username}"
+      private_key = "${var.ssh_private_key}"
+      agent       = false
+    }
+  }
 
 }
 
@@ -100,6 +154,29 @@ resource "google_compute_instance" "worker-node2" {
   metadata {
     ssh-keys               = "${format("ubuntu:%s", var.ssh_public_key)}"
     block-project-ssh-keys = "TRUE"
+  }
+  provisioner "file" {
+    content     = "${data.template_file.common_init_script.rendered}"
+    destination = "/tmp/common_init.sh"
+
+    connection {
+      type        = "ssh"
+      user        = "${var.username}"
+      private_key = "${var.ssh_private_key}"
+    }
+  }
+  provisioner "remote-exec" {
+    inline = [
+      "chmod +x /tmp/common_init.sh",
+      "/tmp/common_init.sh",
+    ]
+
+    connection {
+      type        = "ssh"
+      user        = "${var.username}"
+      private_key = "${var.ssh_private_key}"
+      agent       = false
+    }
   }
 
 }
