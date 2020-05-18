@@ -58,16 +58,6 @@ env_name         = "some-environment-name"
 project          = "your-gcp-project"
 region           = "us-central1"
 zones            = ["us-central1-a", "us-central1-b", "us-central1-c"]
-dns_suffix       = "gcp.some-project.cf-app.com"
-opsman_image_url = "https://storage.googleapis.com/ops-manager-us/pcf-gcp-2.0-build.264.tar.gz"
-
-buckets_location = "US"
-
-ssl_cert = <<SSL_CERT
------BEGIN CERTIFICATE-----
-some cert
------END CERTIFICATE-----
-SSL_CERT
 
 ssl_private_key = <<SSL_KEY
 -----BEGIN RSA PRIVATE KEY-----
