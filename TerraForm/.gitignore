@@ -6,3 +6,4 @@ terraform.key.json
 !example.tfvars
 .idea
 plan
+*.key
