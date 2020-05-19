@@ -83,7 +83,7 @@ SERVICE_ACCOUNT_KEY
 
 ### Tearing down environment
 
-**Note:** This will only destroy resources deployed by Terraform. You will need to clean up anything deployed on top of that infrastructure yourself (e.g. by running `om delete-installation`)
+**Note:** This will only destroy resources deployed by Terraform. You will need to clean up anything deployed on top of that infrastructure yourself
 
 ```bash
 terraform destroy
