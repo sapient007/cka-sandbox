@@ -1,5 +1,5 @@
-env_name         = "mling-test"
-project          = "control-plane-275516"
+env_name         = "simple-env"
+project          = "gcp-project"
 region           = "us-central1"
 zones            = ["us-central1-a", "us-central1-b", "us-central1-c"]
 zone             = "us-central1-a"    #zone to spin up vms
