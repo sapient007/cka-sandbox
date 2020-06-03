@@ -1,5 +1,5 @@
-env_name         = "mling-test"
-project          = "control-plane-275516"
+env_name         = "simple-env"
+project          = "gcp-project"
 region           = "us-central1"
 zones            = ["us-central1-a", "us-central1-b", "us-central1-c"]
 zone             = "us-central1-a"    #zone to spin up vms
@@ -31,7 +31,3 @@ SERVICE_ACCOUNT_KEY
 common_init_script = "../scripts/common.sh"
 master_node_init_script = "../scripts/master_node.sh"
 worker_node_init_script = "../scripts/worker_node.sh"
-
-
-#kubernets version
-kubernetes_version = "1.14.1"
