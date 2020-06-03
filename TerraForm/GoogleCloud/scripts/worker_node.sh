@@ -23,4 +23,4 @@ WORKER2=$(ssh -i /tmp/ssh.key -q -o StrictHostKeyChecking=no -o UserKnownHostsFi
 echo "****** worker2 join message $WORKER2"
 
 # clean up 
-rm -f /tmp/ssh.key
+rm -f /tmp/ssh.key || true

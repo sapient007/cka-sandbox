@@ -33,5 +33,6 @@ module "k8s" {
   common_init_script      = "${var.common_init_script}"
   master_node_init_script      = "${var.master_node_init_script}"
   worker_node_init_script      = "${var.worker_node_init_script}"
+  kubectl_autocomplete_script  = "${var.kubectl_autocomplete_script}"
   ssh_private_key         = "${var.ssh_private_key}"
 }

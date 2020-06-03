@@ -26,3 +26,7 @@ variable "worker_node_init_script" {
   
 }
 
+variable "kubectl_autocomplete_script" {
+  
+}
+

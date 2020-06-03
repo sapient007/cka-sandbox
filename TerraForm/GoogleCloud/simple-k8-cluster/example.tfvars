@@ -31,3 +31,7 @@ SERVICE_ACCOUNT_KEY
 common_init_script = "../scripts/common.sh"
 master_node_init_script = "../scripts/master_node.sh"
 worker_node_init_script = "../scripts/worker_node.sh"
+
+
+#kubernets version
+kubernetes_version = "1.14.1"

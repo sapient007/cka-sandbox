@@ -51,3 +51,8 @@ variable "worker_node_init_script" {
   default = ""
 }
 
+variable "kubectl_autocomplete_script" {
+  description = "Path to the script to have worker node join a cluster"
+  default = ""
+}
+
