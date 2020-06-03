@@ -64,7 +64,7 @@ resource "google_compute_instance" "worker-node1" {
   provisioner "remote-exec" {
     inline = [
       "chmod +x /tmp/common_init.sh",
-      "/tmp/common_init.sh",
+      "/tmp/common_init.sh"
     ]
 
     connection {
@@ -220,6 +220,7 @@ resource "google_compute_instance" "master-node" {
       agent       = false
     }
   }
+  
   provisioner "local-exec" {
     command = "./../scripts/worker_node.sh"
 
