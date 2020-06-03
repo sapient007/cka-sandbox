@@ -2,6 +2,17 @@
 
 set -ex 
 
+# docker and kubernetes version numbers 
+DOCKER_CE_VERSION="18.06.1~ce~3-0~ubuntu"
+KUBE_VERSION="1.15.7-00"
+
+
+# Add the Cloud SDK distribution URI as a package source
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+
+# Import the Google Cloud Platform public key
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
 sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
@@ -14,11 +25,9 @@ cat << EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
 deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 
-sudo apt-get update -y || true
+sudo apt-get update -y
 
-sudo apt-get install -f -y docker-ce=18.06.1~ce~3-0~ubuntu kubelet=1.15.7-00 kubeadm=1.15.7-00 kubectl=1.15.7-00
-# sudo apt-get install -f -y docker-ce=18.06.1~ce~3-0~ubuntu kubelet=1.14.1-00 kubeadm=1.14.1-00 kubectl=1.14.1-00
-
+sudo apt-get install -f -y docker-ce=$DOCKER_CE_VERSION kubelet=$KUBE_VERSION kubeadm=$KUBE_VERSION kubectl=$KUBE_VERSION
 
 sudo apt-mark hold docker-ce kubelet kubeadm kubectl
 
