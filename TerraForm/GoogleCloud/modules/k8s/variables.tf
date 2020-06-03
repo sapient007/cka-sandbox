@@ -18,15 +18,9 @@ variable "common_init_script" {}
 
 variable "ssh_private_key" {}
 
-variable "master_node_init_script" {
-  
-}
+variable "master_node_init_script" {}
 
-variable "worker_node_init_script" {
-  
-}
+variable "worker_node_init_script" {}
 
-variable "kubectl_autocomplete_script" {
-  
-}
+variable "kubectl_autocomplete_script" {}
 
