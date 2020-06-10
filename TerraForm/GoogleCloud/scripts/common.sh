@@ -4,7 +4,7 @@ set -ex
 
 # docker and kubernetes version numbers 
 DOCKER_CE_VERSION="18.06.1~ce~3-0~ubuntu"
-KUBE_VERSION="1.15.7-00"
+KUBE_VERSION="1.17.6-00" #exmaple 1.15.7-00
 
 
 # Add the Cloud SDK distribution URI as a package source
